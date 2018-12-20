@@ -97,7 +97,7 @@ namespace ArLib.Console
         /// <summary>
         /// Do all Async tasks complete?
         /// </summary>
-        private static bool bTasksComplete
+        public static bool TasksComplete
         {
             get
             {
@@ -305,9 +305,9 @@ namespace ArLib.Console
                 errmsg = preErrMsg.Dequeue();
                 if (errmsg == null) break;
 
-                Log("-Previous Error- " + errmsg, MsgLevel.Critical);
+                WriteLine("-Previous Error- " + errmsg, MsgLevel.Critical);
             }
-            Log("Logger successfully created! Name = " + Thread.CurrentThread.Name, MsgLevel.Default);
+            WriteLine("Logger successfully created! Name = " + Thread.CurrentThread.Name, MsgLevel.Default);
         }
 
         /// <summary>
@@ -400,7 +400,7 @@ namespace ArLib.Console
         /// </summary>
         /// <param name="str">Contents to be logged</param>
         /// <param name="level">Message level which decides the printing color</param>
-        public static void Log(string str, MsgLevel level = MsgLevel.Default)
+        public static void WriteLine(string str, MsgLevel level = MsgLevel.Default)
         {
             if (Released) return;
 
@@ -414,6 +414,7 @@ namespace ArLib.Console
                     bAllowTracing: true,
                     callback: LogGuiConsoleCallback,
                     @object: str);
+                return;
             }
 
             msg = Prefix.Trim() + "[" + DateTime.Now.ToString("HH:mm:ss") + "] " + str;
@@ -460,6 +461,7 @@ namespace ArLib.Console
                     bAllowTracing: true,
                     callback: LogGuiConsoleCallback,
                     @object: "[CMD]" + str);
+                return;
             }
 
             msg = bPrefix ? ("[" + prefix + "] " + str) : str;
@@ -514,8 +516,8 @@ namespace ArLib.Console
         {
             if(!bInitedCMD)
             {
-                Log("You didn't set this logger instance to responds to CMD commands.", MsgLevel.Critical);
-                Log("Otherwise this may be caused by errors occured before.", MsgLevel.Critical);
+                WriteLine("You didn't set this logger instance to responds to CMD commands.", MsgLevel.Critical);
+                WriteLine("Otherwise this may be caused by errors occured before.", MsgLevel.Critical);
                 return;
             }
 
@@ -527,11 +529,11 @@ namespace ArLib.Console
 
             if(!bStart)
             {
-                Log("Failed to create CMD process.", MsgLevel.Critical);
+                WriteLine("Failed to create CMD process.", MsgLevel.Critical);
                 return;
             }
 
-            Log("-Sync Exec- " + command, MsgLevel.Further);
+            WriteLine("-Sync Exec- " + command, MsgLevel.Further);
 
             procCMD.StandardInput.AutoFlush = true;
             procCMD.StandardInput.WriteLine(@"ECHO OFF");
@@ -544,10 +546,10 @@ namespace ArLib.Console
             result = result.Substring(index + 8, result.Length - index - 13);
 
             InnerLog(result, "", false, MsgLevel.Redirected);
-            Log("-Sync Exec- Terminated. [" + command + "]", MsgLevel.Further);
+            WriteLine("-Sync Exec- Terminated. [" + command + "]", MsgLevel.Further);
 
             if (bGuiConsole)
-                Log("-Sync Exec- The result should show in a message box poping.");
+                WriteLine("-Sync Exec- The result should show in a message box poping.");
 
             procCMD.Close();
         }
@@ -557,9 +559,9 @@ namespace ArLib.Console
         /// <param name="command">A non-interactive CMD command</param>
         public static void AsyncExecuteCMD(string command)
         {
-            if (pendingCount >= 1)
+            if (pendingCount >= 3)
             {
-                Log("You can't start a new async command while there is a pending command.", MsgLevel.Critical);
+                WriteLine("You can't start a new async command while there are more than 3 commands pending.", MsgLevel.Critical);
                 return;
             }
             //Register async executing event.
@@ -575,8 +577,8 @@ namespace ArLib.Console
                 );
 
             PendingAsyncCommands.Enqueue(AsyncExecuteCMDResult);
-            Log("[" + command + "] has been added to exec queue.");
-            Log("Current pending count = " + PendingAsyncCommands.Count);
+            WriteLine("[" + command + "] has been added to exec queue.");
+            WriteLine("Current pending count = " + PendingAsyncCommands.Count);
             return;
         }
         /// <summary>
@@ -587,8 +589,8 @@ namespace ArLib.Console
         {
             if (!bInitedCMD)
             {
-                Log("You didn't set this logger instance to responds to CMD commands.", MsgLevel.Critical);
-                Log("Otherwise this may be caused by errors occured before.", MsgLevel.Critical);
+                WriteLine("You didn't set this logger instance to responds to CMD commands.", MsgLevel.Critical);
+                WriteLine("Otherwise this may be caused by errors occured before.", MsgLevel.Critical);
                 return;
             }
 
@@ -600,11 +602,11 @@ namespace ArLib.Console
 
             if (!bStart)
             {
-                Log("Failed to create CMD process.", MsgLevel.Critical);
+                WriteLine("Failed to create CMD process.", MsgLevel.Critical);
                 return;
             }
 
-            Log("-Async Exec- " + command, MsgLevel.Further);
+            WriteLine("-Async Exec- " + command, MsgLevel.Further);
 
             asyncCMD.StandardInput.AutoFlush = true;
             asyncCMD.StandardInput.WriteLine(@"ECHO OFF");
@@ -635,9 +637,9 @@ namespace ArLib.Console
             else
                 msg = msg + "Waiting for left " + pendingCount + " task(s)";
 
-            Log(msg, MsgLevel.Further);
+            WriteLine(msg, MsgLevel.Further);
             if (bGuiConsole)
-                Log("-Async Exec- The result should show in a message box poping.");
+                WriteLine("-Async Exec- The result should show in a message box poping.");
         }
     }
 }
