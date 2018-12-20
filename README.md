@@ -1,12 +1,12 @@
 # ArLib
 [![Build status](https://ci.appveyor.com/api/projects/status/1un932sc43b9j4en?svg=true)](https://ci.appveyor.com/project/ArHShRn/arlib)
-My personal C# library for simplizing coding experience.<br>
+<br>My personal C# library for simplizing coding experience.<br>
 Welcome to dev or modify it because it's under MIT license.<br>
 
-#AR Console
+# AR Console
 This is a logging helper.<br>
 You can record logs like casual Console.WriteLine() but using ARConsole.WriteLine();<br>
-##CUI Console Style
+## CUI Console Style
 ![CUI](https://fileshk.arhshrn.cn/github/Ar_Lib/Console/CUI.JPG)<br>
 This is the CUI style of the console.<br>
 It has 4 kinds of colors indicating your logs.<br>
@@ -39,7 +39,7 @@ static void Main(string[] args)
     }
 }
 ```
-##GUI Console Style
+## GUI Console Style
 ![GUI](https://fileshk.arhshrn.cn/github/Ar_Lib/Console/GUI.JPG)<br>
 This is the GUI style of the console.<br>
 What's different between CUI and GUI style is that CMD commands executing results will be shown in a message box poping.<br>
