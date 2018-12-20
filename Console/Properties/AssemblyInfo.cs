@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Console")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("ArHShRn Library Console")]
+[assembly: AssemblyDescription("ArHShRn Library Console")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Console")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyProduct("ArHShRn Library Console")]
+[assembly: AssemblyCopyright("Copyright © ArHShRn 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

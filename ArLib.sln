@@ -5,16 +5,28 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{271E6C82-1A4D-496D-851D-415C780511C0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github Items", "Github Items", "{108DE91B-3BCF-48F4-A424-B923D4FB94E3}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{271E6C82-1A4D-496D-851D-415C780511C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{271E6C82-1A4D-496D-851D-415C780511C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{271E6C82-1A4D-496D-851D-415C780511C0}.Debug|x64.ActiveCfg = Release|x64
+		{271E6C82-1A4D-496D-851D-415C780511C0}.Debug|x64.Build.0 = Release|x64
 		{271E6C82-1A4D-496D-851D-415C780511C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{271E6C82-1A4D-496D-851D-415C780511C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{271E6C82-1A4D-496D-851D-415C780511C0}.Release|x64.ActiveCfg = Release|x64
+		{271E6C82-1A4D-496D-851D-415C780511C0}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
