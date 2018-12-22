@@ -19,7 +19,7 @@ namespace ArLib.Console
         /// Author and version
         /// </summary>
         public static string sAuthor = 
-            @"ArHShRn Library Logger Console [x64 Release]";
+            @"ArHShRn Library Logger Console [.NET Framework 3.5 Release]";
         /// <summary>
         /// Console Helper Classs Copyright
         /// </summary>

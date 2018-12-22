@@ -19,9 +19,9 @@ build:
   verbosity: minimal
 
 artifacts:
-- path: Console\bin\x64\Release\ArLib.Console.dll
+- path: Console\bin\Release\ArLib.Console.dll
   name: ArHShRn Library Console
-- path: Console\bin\x64\Release\ArLib.Console.xml
+- path: Console\bin\Release\ArLib.Console.xml
   name: ArHShRn Library Console XML Comments
 deploy:
 - provider: GitHub
