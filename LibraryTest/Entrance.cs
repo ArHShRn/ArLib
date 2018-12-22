@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ArLib.Console;
 
 namespace LibraryTest
@@ -11,7 +7,7 @@ namespace LibraryTest
     {
         static void Main(string[] args)
         {
-            ARConsole.CreateConsole(true, "ARConsole", true);
+            ARConsole.CreateConsole(false, "ARConsole", false);
 
             ARConsole.CRLF();
             ARConsole.WriteLine("Default Message Color. With Default Param.");

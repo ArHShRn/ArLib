@@ -5,7 +5,7 @@ skip_tags: true
 
 configuration: Release
 
-platform: x64
+platform: Any CPU
 
 assembly_info:
   patch: true
