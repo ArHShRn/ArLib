@@ -153,9 +153,10 @@ namespace ArLib.Console
         private static void StreamToConsole()
         {
             Stream cstm = System.Console.OpenStandardOutput();
-            StreamWriter cstw = new StreamWriter(cstm, Encoding.Default);
-
-            cstw.AutoFlush = true;
+            StreamWriter cstw = new StreamWriter(cstm, Encoding.Default)
+            {
+                AutoFlush = true
+            };
 
             System.Console.SetOut(cstw);
             System.Console.SetError(cstw);

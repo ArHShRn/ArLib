@@ -7,7 +7,7 @@ namespace LibraryTest
     {
         static void Main(string[] args)
         {
-            ARConsole.CreateConsole(false, "ARConsole", false);
+            ARConsole.CreateConsole(true, "HuQi Says:", false, "Prof.Hu's logger");
 
             ARConsole.CRLF();
             ARConsole.WriteLine("Default Message Color. With Default Param.");
@@ -16,9 +16,8 @@ namespace LibraryTest
             ARConsole.WriteLine("Further Message Color. With Default Param.", MsgLevel.Further);
             ARConsole.WriteLine("Critical Message Color. With Default Param.", MsgLevel.Critical);
 
-            ARConsole.AsyncExecuteCMD("NSLOOKUP -QT=A BLOG.AR-DISTRIBUTED.COM 8.8.8.8");
-            ARConsole.ExecuteCMD("TASKLIST | FINDSTR AWCC.Service");
-
+            ARConsole.AsyncExecuteCMD("NSLOOKUP -QT=A AREIY.LOVE 8.8.8.8");
+            ARConsole.AsyncExecuteCMD("TASKLIST | FINDSTR AWCC.Service");
             Console.ReadKey();
         }
     }
